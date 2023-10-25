@@ -1,22 +1,31 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import OutsideClickHandler from "react-outside-click-handler";
 import "../Components/Todo.css";
 
 import { FiArrowLeft } from "react-icons/fi";
 import { FiArrowRight } from "react-icons/fi";
+import { RxHamburgerMenu } from "react-icons/rx";
 
 const Todo = () => {
   const [tasks, setTasks] = useState([]);
   const [page, setPage] = useState(1);
+  const [menuOpened, setMenuopened] = useState(false);
+
+  const getMenuStyles = (menuOpened) => {
+    if (document.documentElement.clientWidth <= 800) {
+      return { scale: !menuOpened && "0" };
+    }
+  };
 
   const Task = (props) => {
     return (
-      <div className={props.status ? "task" : "task-done"}>
+      <div className={props.status ? "task-done" : "task"}>
         <input
           type="checkbox"
           id="taskHeading"
           onChange={() => handleCheckbox(props.idThing)}
-          checked={!props.status}
+          checked={props.status}
         />
 
         <p>{props.taskTitle}</p>
@@ -66,7 +75,33 @@ const Todo = () => {
 
   return (
     <div className="todo">
-      <h1> dynamic todos</h1>
+      <h1> dynamic todo</h1>
+      <div
+        className="menu-icon"
+        onClick={() => {
+          setMenuopened((prev) => !prev);
+
+          console.log("====================================");
+          console.log("clicked");
+          console.log("====================================");
+        }}
+      >
+        <RxHamburgerMenu size={30} color={"black"} />
+      </div>
+
+      <OutsideClickHandler
+        onOutsideClick={() => {
+          setMenuopened(false);
+        }}
+      >
+        <div className="details" style={getMenuStyles(menuOpened)}>
+          <span>Task Completed</span>
+          <span style={{ fontWeight: "bold" }}>
+            {tasks.filter((task) => task.completed === true).length}/100
+          </span>
+        </div>
+      </OutsideClickHandler>
+
       <div className="tasks">
         {tasks.length > 0 ? (
           <>
