@@ -1,4 +1,4 @@
-# Dynamic To-do/Ticketing Application
+# TaskSphere Connect - A dynamic to-do/ticketing application
 
 ## Description
 
