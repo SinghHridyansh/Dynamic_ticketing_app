@@ -1,5 +1,9 @@
 # TaskSphere Connect - A dynamic to-do/ticketing application
 
+##Hosted Link
+
+https://tasksphere-connect.netlify.app/
+
 ## Description
 
 I would like to explain this project as a Dynamic To-do Application. The main purpose of developing this application was to learn few concepts in ReactJS. In the application the tasks are present in the form of cards that can be toggled when the user is done with the application. On the basis of the status, the card becomes green depicting the completion of the task. Otherwise it stays the way it is.
