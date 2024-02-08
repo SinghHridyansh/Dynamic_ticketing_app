@@ -75,7 +75,7 @@ const Todo = () => {
 
   return (
     <div className="todo">
-      <h1> dynamic todo</h1>
+      <h1>TaskSphere</h1>
       <div
         className="menu-icon"
         onClick={() => {
