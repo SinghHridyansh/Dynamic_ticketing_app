@@ -1,6 +1,6 @@
 # TaskSphere Connect - A dynamic to-do/ticketing application
 
-##Hosted Link
+## Hosted Link
 
 https://tasksphere-connect.netlify.app/
 
